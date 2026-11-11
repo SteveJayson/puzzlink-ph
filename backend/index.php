@@ -12,13 +12,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 
 header('Content-Type: application/json');
 
-// Strip /api prefix if present, then clean trailing slash
-$uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+// Get the raw URI, decode it, strip /api prefix, clean trailing slash
+$uri = $_SERVER['REQUEST_URI'] ?? '/';
+$uri = rawurldecode($uri);
+$uri = parse_url($uri, PHP_URL_PATH);
 $uri = preg_replace('#^/api#', '', $uri);
 $uri = rtrim($uri, '/');
-if ($uri === '') $uri = '/';
+if ($uri === '') {
+    $uri = '/';
+}
 
 $method = $_SERVER['REQUEST_METHOD'];
+$key    = $method . ':' . $uri;
 
 $routes = [
     'POST:/register'            => __DIR__ . '/api/register.php',
@@ -36,8 +41,6 @@ $routes = [
     'POST:/payout/request'      => __DIR__ . '/api/payout_request.php',
     'GET:/payout/status'        => __DIR__ . '/api/payout_status.php',
 ];
-
-$key = $method . ':' . $uri;
 
 if (isset($routes[$key])) {
     require $routes[$key];
