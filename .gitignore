@@ -1,0 +1,18 @@
+# Environment — never commit secrets
+backend/.env
+*.env
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+*.swp
+
+# Godot
+client/godot/.godot/
+client/godot/export/
+
+# PHP
+backend/vendor/

@@ -1,0 +1,31 @@
+services:
+  - type: web
+    name: puzzlink-ph-api
+    env: php
+    buildCommand: ""
+    startCommand: php -S 0.0.0.0:$PORT -t backend backend/router.php
+    envVars:
+      - key: DB_HOST
+        sync: false
+      - key: DB_PORT
+        value: 3306
+      - key: DB_NAME
+        sync: false
+      - key: DB_USER
+        sync: false
+      - key: DB_PASS
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+      - key: OW_SECRET_TAPJOY
+        value: ""
+      - key: OW_SECRET_CPX
+        value: ""
+      - key: OW_SECRET_WANNADS
+        value: ""
+      - key: APPLOVIN_SSV_KEY
+        value: ""
+      - key: XENDIT_SECRET_KEY
+        value: ""
+      - key: XENDIT_WEBHOOK_TOKEN
+        value: ""

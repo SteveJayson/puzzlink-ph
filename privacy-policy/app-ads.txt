@@ -1,0 +1,13 @@
+# app-ads.txt for PuzzLink PH
+# Host this file at: https://YOUR_DOMAIN/app-ads.txt
+# 
+# Google will crawl this URL (found in your Play Store listing)
+# to verify which ad networks are authorized to sell your inventory.
+# Without this file, AdMob may reduce fill rates.
+#
+# Replace XXXXXXXXXXXXXXXX with your actual publisher IDs from each dashboard.
+
+google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0
+applovin.com, XXXXXXXX, DIRECT
+unity.com, XXXXXXXX, DIRECT
+mintegral.com, XXXXXXXX, DIRECT

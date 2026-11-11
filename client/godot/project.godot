@@ -1,0 +1,45 @@
+; Engine configuration file.
+; Generated for PuzzLink PH - Godot 4.x
+
+config_version=5
+
+[application]
+
+config/name="PuzzLink PH"
+config/description="Casual word/grid puzzle with real cash rewards"
+config/version="1.0.0"
+run/main_scene="res://scenes/ui/Splash.tscn"
+config/features=PackedStringArray("4.2", "Mobile")
+config/icon="res://assets/icon.png"
+
+[display]
+
+window/size/viewport_width=390
+window/size/viewport_height=844
+window/size/resizable=false
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+window/handheld/orientation=1  ; Portrait
+
+[rendering]
+
+renderer/rendering_method="mobile"
+textures/vram_compression/import_etc2_astc=true
+
+[autoload]
+
+API="*res://scripts/net/API.gd"
+GameState="*res://scripts/managers/GameState.gd"
+AdManager="*res://scripts/managers/AdManager.gd"
+SessionManager="*res://scripts/managers/SessionManager.gd"
+SyncManager="*res://scripts/managers/SyncManager.gd"
+LocalDB="*res://scripts/data/LocalDB.gd"
+AdCompliance="*res://scripts/managers/AdCompliance.gd"
+Toast="*res://scripts/ui/components/ToastNotification.gd"
+
+[input]
+
+tap={
+"deadzone": 0.5,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"device":-1,"button_index":1,"pressed":true)]
+}

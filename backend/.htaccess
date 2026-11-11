@@ -1,0 +1,11 @@
+RewriteEngine On
+
+# Block direct access to config/middleware/helpers/anticheat/services
+RewriteRule ^(config|middleware|helpers|anticheat|services)/.*$ - [F,L]
+
+# Admin panel — served directly (no rewrite needed, handled by PHP files)
+RewriteRule ^admin/.*$ - [L]
+
+# Route all /api/* requests through index.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^api/(.*)$ index.php [QSA,L]
