@@ -1,14 +1,12 @@
 services:
   - type: web
     name: puzzlink-ph-api
-    env: php
-    buildCommand: ""
-    startCommand: php -S 0.0.0.0:$PORT -t backend backend/router.php
+    env: docker
     envVars:
       - key: DB_HOST
         sync: false
       - key: DB_PORT
-        value: 3306
+        value: "3306"
       - key: DB_NAME
         sync: false
       - key: DB_USER
