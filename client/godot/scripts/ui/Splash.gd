@@ -1,16 +1,15 @@
 # ============================================================
-# Splash.gd  — attached to res://scenes/ui/Splash.tscn
-# First scene loaded. Handles device registration, then
-# transitions to the main menu.
+# Splash.gd — First scene. Handles device registration.
 # ============================================================
 extends Control
 
-@onready var label_status : Label = $LabelStatus
-@onready var anim         : AnimationPlayer = $AnimationPlayer
+@onready var label_status : Label  = $VBox/LabelStatus
+@onready var btn_retry    : Button = $VBox/BtnRetry
 
 func _ready() -> void:
 	SessionManager.session_ready.connect(_on_session_ready)
 	SessionManager.session_failed.connect(_on_session_failed)
+	btn_retry.pressed.connect(_on_retry_pressed)
 	label_status.text = "Connecting..."
 	SessionManager.ensure_registered()
 
@@ -21,10 +20,9 @@ func _on_session_ready(is_new_user: bool) -> void:
 
 func _on_session_failed(error: String) -> void:
 	label_status.text = "⚠ Connection failed.\nCheck your internet and restart."
-	# Show retry button
-	$BtnRetry.show()
+	btn_retry.show()
 
 func _on_retry_pressed() -> void:
-	$BtnRetry.hide()
+	btn_retry.hide()
 	label_status.text = "Retrying..."
 	SessionManager.ensure_registered()

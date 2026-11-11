@@ -66,7 +66,7 @@ func ensure_registered() -> void:
 	# Collect device info via Android JNI calls
 	var android_id   : String = _get_android_id()
 	var device_model : String = OS.get_model_name()
-	var os_version   : String = str(OS.get_version_info().get("major", 0))
+	var os_version   : String = str(Engine.get_version_info().get("major", 0))
 	var app_version  : String = ProjectSettings.get_setting("application/config/version", "1.0.0")
 
 	var result : Dictionary = await API.device_register(

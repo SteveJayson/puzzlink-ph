@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://gridcell"]
+[gd_scene load_steps=2 format=3]
 
 [ext_resource type="Script" path="res://scripts/game/GridCell.gd" id="1"]
 
@@ -7,6 +7,7 @@ custom_minimum_size = Vector2(44, 44)
 script = ExtResource("1")
 
 [node name="Panel" type="Panel" parent="."]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -14,10 +15,10 @@ offset_right = -2.0
 offset_bottom = -2.0
 
 [node name="Label" type="Label" parent="Panel"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 horizontal_alignment = 1
 vertical_alignment = 1
 theme_override_font_sizes/font_size = 16
-theme_override_colors/font_color = Color(0.1, 0.1, 0.1)

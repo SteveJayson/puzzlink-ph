@@ -145,7 +145,7 @@ func _dispatch(event_type: String, payload: Dictionary) -> bool:
 			)
 			# 409 (already credited) is also a success for sync purposes
 			return result.get("success", false) or \
-			       result.get("error", "") == "Impression already credited"
+				   result.get("error", "") == "Impression already credited"
 	return false
 
 func _on_queue_changed(pending_count: int) -> void:
@@ -159,6 +159,6 @@ func is_online() -> bool:
 # Connected in _ready after Toast autoload is available
 func _notify_sync_result(synced: int, failed: int) -> void:
 	if synced > 0:
-		ToastNotification.show_msg("✓ %d offline reward(s) synced!" % synced, Color(0.2, 0.9, 0.4))
+		Toast.show_msg("✓ %d offline reward(s) synced!" % synced, Color(0.2, 0.9, 0.4))
 	if failed > 0:
-		ToastNotification.show_msg("⚠ %d reward(s) failed to sync. Will retry." % failed, Color(1.0, 0.6, 0.1))
+		Toast.show_msg("⚠ %d reward(s) failed to sync. Will retry." % failed, Color(1.0, 0.6, 0.1))

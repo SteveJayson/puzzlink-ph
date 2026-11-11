@@ -1,0 +1,91 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/MainMenu.gd" id="1"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("1")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.059, 0.09, 0.161, 1)
+
+[node name="SafeArea" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_top = 48
+theme_override_constants/margin_bottom = 16
+
+[node name="VBox" type="VBoxContainer" parent="SafeArea"]
+layout_mode = 2
+
+[node name="Header" type="HBoxContainer" parent="SafeArea/VBox"]
+layout_mode = 2
+
+[node name="LabelCoins" type="Label" parent="SafeArea/VBox/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "🪙 0"
+theme_override_font_sizes/font_size = 16
+
+[node name="LabelPhp" type="Label" parent="SafeArea/VBox/Header"]
+layout_mode = 2
+text = "₱0.00"
+theme_override_font_sizes/font_size = 16
+theme_override_colors/font_color = Color(0.2, 0.9, 0.4, 1)
+
+[node name="LblOffline" type="Label" parent="SafeArea/VBox/Header"]
+layout_mode = 2
+text = "📶 Offline"
+visible = false
+theme_override_font_sizes/font_size = 11
+theme_override_colors/font_color = Color(1, 0.6, 0.2, 1)
+
+[node name="BadgeCashout" type="Label" parent="SafeArea/VBox/Header"]
+layout_mode = 2
+text = "💸 CASHOUT READY"
+visible = false
+theme_override_font_sizes/font_size = 11
+theme_override_colors/font_color = Color(0.2, 0.9, 0.4, 1)
+
+[node name="Spacer" type="Control" parent="SafeArea/VBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 24)
+
+[node name="LabelLevel" type="Label" parent="SafeArea/VBox"]
+layout_mode = 2
+text = "Level 1"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 22
+
+[node name="LabelProgress" type="Label" parent="SafeArea/VBox"]
+layout_mode = 2
+text = "₱0.00 / ₱50 to cashout"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 13
+theme_override_colors/font_color = Color(0.58, 0.64, 0.75, 1)
+
+[node name="ProgressBar" type="ProgressBar" parent="SafeArea/VBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 12)
+value = 0.0
+
+[node name="Spacer2" type="Control" parent="SafeArea/VBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 32)
+
+[node name="BtnPlay" type="Button" parent="SafeArea/VBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 56)
+text = "▶  Play Now"
+theme_override_font_sizes/font_size = 18
