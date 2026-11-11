@@ -1,9 +1,7 @@
-FROM php:8.2-cli
+FROM php:8.2-cli-alpine
 
-RUN apt-get update && apt-get install -y \
-    libcurl4-openssl-dev \
-    && docker-php-ext-install curl pdo pdo_mysql \
-    && rm -rf /var/lib/apt/lists/*
+RUN apk add --no-cache curl-dev \
+    && docker-php-ext-install pdo pdo_mysql curl
 
 WORKDIR /app
 
